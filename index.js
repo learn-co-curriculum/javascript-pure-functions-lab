@@ -16,7 +16,12 @@ const addToPlaylist = (playlist, episode) => [...playlist, episode];
 const removeFromPlaylist = (playlist, episode) => playlist.filter(e => e.id !== episode.id);
 const getNextEpisodeInPlaylist = playlist => playlist[0];
 
-const bingeWatch = (playlist) => {
+// :( We need to use `function` so that we can spy on
+// it. This is bad testing practice in the real world,
+// but maybe it's okay in the contrived world of Learn?
+// In the real world, `const bingeWatch = playlist => { ... }`
+// is just fine.
+function bingeWatch(playlist) {
   if (playlist.length === 0) {
     return 'Please let there be more!';
   }

@@ -1,5 +1,3 @@
-const sinon = require('sinon');
-
 describe('Pure functions', function() {
   describe('getNextEpisodeInPlaylist()', function () {
     it('should return the next episode in a playlist', function() {
@@ -35,9 +33,9 @@ describe('Pure functions', function() {
   describe('bingeWatch()', function () {
     it('should watch all 10 episodes', function() {
       const updatedPlaylist = addToPlaylist(episodes, finaleEpisode);
-      const spy = sinon.spy(window, 'getNextEpisodeInPlaylist');
-      const result = bingeWatch(updatedPlaylist);
-      expect(spy.callCount).toEqual(10);
+      const spy = sinon.spy(window, 'bingeWatch')
+      const result = window.bingeWatch(updatedPlaylist);
+      expect(spy.callCount).toEqual(11);
       expect(result).toEqual('Please let there be more!');
     });
   });
