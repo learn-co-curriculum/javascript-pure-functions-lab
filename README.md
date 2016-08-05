@@ -23,9 +23,25 @@ create a playlist that also contains the finale episode.
 episode removed from the array. This function must also **not modify** the original array.
 3. Create a `getNextEpisodeInPlaylist()` function that returns the first episode in a playlist.
 4. Finally, to tie it all together, create a function called `bingeWatch()` that takes a playlist as its only argument.
-This function recursively calls itself: as long as there is a next episode, we watch it (by removing it from the 
+This function recursively calls itself: as long as there is a next episode, we watch it (by removing it from the
 playlist), and then we continue our binge watching session. If there are no more episodes in the playlist, we return the
 string `'Please let there be more!'`. Sadly for us, there aren't any more episodes in this season. _Such_ a long wait.
+
+**NOTE**: Unfortunately, due to JavaScript quirks, you'll need to
+write `bingeWatch()` with `function` syntax for the tests to pass:
+
+```javascript
+function bingeWatch() { ... }
+```
+
+In the "real world," using an arrow function would be fine —
+
+```javascript
+const bingeWatch = () => { ... }
+```
+
+— but it won't work here.
+
 
 ## Resources
 - [Eloquent JavaScript: Functions](http://eloquentjavascript.net/1st_edition/chapter3.html)
