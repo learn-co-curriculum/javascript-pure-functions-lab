@@ -16,7 +16,7 @@ describe('Pure functions', function() {
 
     it('should not modify the original episodes array', function() {
       addToPlaylist(episodes, finaleEpisode);
-      expect(episodes.length).toEqual(4);
+      expect(episodes.length).toEqual(9);
     });
   });
 
@@ -28,16 +28,16 @@ describe('Pure functions', function() {
 
     it('should not modify the original episodes array', function() {
       removeFromPlaylist(episodes, episodes[0]);
-      expect(episodes.length).toEqual(4);
+      expect(episodes.length).toEqual(9);
     });
   });
 
   describe('bingeWatch()', function () {
-    it('should watch all 5 episodes', function() {
+    it('should watch all 10 episodes', function() {
       const updatedPlaylist = addToPlaylist(episodes, finaleEpisode);
       const spy = sinon.spy(window, 'getNextEpisodeInPlaylist');
       const result = bingeWatch(updatedPlaylist);
-      expect(spy.callCount).toEqual(5);
+      expect(spy.callCount).toEqual(10);
       expect(result).toEqual('Please let there be more!');
     });
   });
